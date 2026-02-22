@@ -1,0 +1,15 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Pro tier (never committed to this repo)
+pro/
+*-pro/
+*_pro/
+
+# Local license tracking (machine-specific, never commit)
+$HOME/.config/kaizen-ai/
+
+# Editor
+.vscode/
+.idea/
