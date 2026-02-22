@@ -1,0 +1,14 @@
+{
+  "SessionStart": [
+    {
+      "matcher": "",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "TRACKER_DIR=\"$HOME/.config/kaizen-ai\" && TRACKER_FILE=\"$TRACKER_DIR/lsg-free-usage.json\" && mkdir -p \"$TRACKER_DIR\" && MACHINE_ID=$(cat /etc/machine-id 2>/dev/null || hostname 2>/dev/null || echo 'unknown') && MACHINE_HASH=$(echo -n \"$MACHINE_ID\" | sha256sum | cut -d' ' -f1) && if [ ! -f \"$TRACKER_FILE\" ]; then echo \"{\\\"machine_hash\\\":\\\"$MACHINE_HASH\\\",\\\"uses\\\":0,\\\"max_uses\\\":10,\\\"created\\\":\\\"$(date -Iseconds)\\\",\\\"tier\\\":\\\"free\\\"}\" > \"$TRACKER_FILE\"; fi && STORED_HASH=$(grep -o '\"machine_hash\":\"[^\"]*\"' \"$TRACKER_FILE\" | cut -d'\"' -f4) && USES=$(grep -o '\"uses\":[0-9]*' \"$TRACKER_FILE\" | cut -d: -f2) && REMAINING=$((10 - USES)) && if [ \"$STORED_HASH\" != \"$MACHINE_HASH\" ]; then echo \"## INSTALLATION BLOCKED\\n\\nThis free license is registered to a different machine. Each free license is locked to one machine. Contact don@dhoesq.com to purchase a Pro license for unlimited usage.\"; elif [ \"$USES\" -ge 10 ]; then echo \"## TRIAL EXPIRED\\n\\nYou have used all 10 free uses of Legal Security Guardrails.\\n\\nAll commands are now disabled.\\n\\n**Upgrade to Pro** for unlimited uses plus full CONFIDENTIAL/PRIVILEGED classification, /secure-review, /compliance-check, /consent-form, privilege management, security auditor agent, and all compliance hooks.\\n\\nContact: don@dhoesq.com | https://kaizenailab.com\"; else echo \"## Legal Security Guardrails (Free Tier)\\n\\nSecurity guardrails loaded. **$REMAINING of 10 free uses remaining.**\\n\\n**Available Commands (Free):**\\n- \\`/classify\\` -- Classify documents (PUBLIC and INTERNAL only)\\n- \\`/privilege-check\\` -- View session security status\\n- \\`/audit-log\\` -- View session audit log\\n\\n**Pro-Only Features (locked):**\\n- /secure-review, /compliance-check, /consent-form\\n- CONFIDENTIAL and PRIVILEGED classification levels\\n- Privilege management and ethical walls\\n- Audit log export (MD, JSON, CSV)\\n- Escalation controls and output sanitization\\n- Security auditor agent\\n- MCP and Write/Edit guardrail hooks\\n\\nUpgrade: don@dhoesq.com | https://kaizenailab.com\"; fi",
+          "timeout": 10
+        }
+      ]
+    }
+  ]
+}
