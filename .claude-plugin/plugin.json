@@ -1,0 +1,11 @@
+{
+  "name": "legal-security-guardrails-free",
+  "version": "1.0.0",
+  "description": "Security and compliance guardrails for regulated industries (Free Tier). Includes basic data classification (PUBLIC/INTERNAL), PII detection, privilege status checks, and audit log viewing. Limited to 10 lifetime uses. Upgrade to Pro for full CONFIDENTIAL/PRIVILEGED support, compliance assessments, consent forms, secure contract review, and unlimited usage.",
+  "author": {
+    "name": "Kaizen AI Lab (CVDH LLC)"
+  },
+  "keywords": ["legal", "security", "compliance", "privilege", "guardrails", "audit", "PII", "free"],
+  "homepage": "https://kaizenailab.com",
+  "license": "Proprietary"
+}
